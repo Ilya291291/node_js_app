@@ -1,0 +1,14 @@
+services:
+  name:
+    image: jumper29/res
+    build:
+      dockerfile: name.dockerfile
+  res:
+    image: jumper29/res-name
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - name
